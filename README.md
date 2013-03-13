@@ -27,7 +27,7 @@ Usage
 
 Expressions are lisp like. Operations supported are addition, subtraction, multiplication and division (+, -, *, /).
 
-Code should be supplied to the jitcalc command in the first argument. An S-Expression of this form is expected `((args...) (expr)`. Subsequent command line arguments are bound to the function arguments of the supplied expression. Some examples should make this clear!
+Code should be supplied to the jitcalc command in the first argument. An S-Expression of this form is expected `((args...) (expr))`. Subsequent command line arguments are bound to the function arguments of the supplied expression. Some examples should make this clear!
 
     $ ./jitcalc "((x) (+ x 10))" 5 # add 10 to x, which is bound to 5
     Interpreted output: 15
