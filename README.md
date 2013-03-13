@@ -8,7 +8,7 @@ The objectives are to demonstrate how to use AsmJit (right now there are few exa
 Compiling
 ---------
 
-This project uses a CMake build. You'll need a recent version of GCC or clang (C++11 features used heavily). Tested on x86-64 Linux only. I'd expect x86-64 OSX to work too.
+This project uses a CMake build. You'll need a recent version of GCC or clang (C++11 features used).
 
     # git checkout
     git clone https://github.com/lukedodd/JitCalc.git
@@ -20,6 +20,8 @@ This project uses a CMake build. You'll need a recent version of GCC or clang (C
     make
     # run an example
     ./jitcalc "((x y) (+ x (/ y 2)))" 5 20.5
+    
+Tested on x86-64 Linux only. I would expect x86-64 OSX to work too. Windows (visual studio 2010+) might just work (perhaps requring small tweaks) but it has not been tested yet, the same is true of 32bit.
     
 Usage
 -----
