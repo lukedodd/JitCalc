@@ -56,24 +56,22 @@ Benchmark Results
 
 Here are benchmark command examples and results.
 
-
     $ ./jitcalc -benchmark "((x y) (* x (+ y 10)))" 5 10
     Interpreted output: 100
     Code gen output: 100
 
     Benchmarking...
-    Duration for 1000000 repeated evaluations.
+    Duration for 10000000 repeated evaluations.
 
-     - Interpreted: 1020ms
-     - JIT: 5ms 
+     - Interpreted: 2532ms
+     - JIT: 19ms 
 
-    $ ./jitcalc -benchmark "((x y) (+ (* (+ x 20) y) (/ x (+ y 1))))" 15.5 20
+    $ ./jitcalc -benchmark "((x y) (+ (* (+ x 20) y) (/ x (+ y 1))))" 15.5 20 
     Interpreted output: 710.738
     Code gen output: 710.738
 
     Benchmarking...
-    Duration for 1000000 repeated evaluations.
+    Duration for 10000000 repeated evaluations.
 
-     - Interpreted: 2308ms
-     - JIT: 7ms 
-
+     - Interpreted: 5732ms
+     - JIT: 52ms

@@ -67,13 +67,17 @@ public:
                     [=](const Cell &c) -> EvalReturn{
                     return this->eval(c);
                 });
+
+                if(functionMap.find(c.list[0].val) == functionMap.end())
+                    throw std::runtime_error("Could not handle procedure: " + c.list[0].val);
+
                 // call function specified by sumbol map with evaled arguments
                 return functionMap.at(c.list[0].val)(evalArgs);
           }case Cell::Symbol:{
               if(symbolHandler)
                   return symbolHandler(c.val);
               else
-                  std::runtime_error("Cannot handle symbol.");
+                  std::runtime_error("Cannot handle symbol: " + c.val);
           }
         }
       std::runtime_error("Should never get here.");
@@ -90,10 +94,6 @@ public:
         functionMap["-"] = [](const std::vector<double> &d){return d[0] - d[1];};
         functionMap["/"] = [](const std::vector<double> &d){return d[0] / d[1];};
         functionMap["*"] = [](const std::vector<double> &d){return d[0] * d[1];};
-        functionMap["sin"] = [](const std::vector<double> &d){return std::sin(d[0]);};
-        functionMap["cos"] = [](const std::vector<double> &d){return std::cos(d[0]);};
-        functionMap["tan"] = [](const std::vector<double> &d){return std::tan(d[0]);};
-        functionMap["pow"] = [](const std::vector<double> &d){return std::pow(d[0], d[1]);};
 
         numberHandler = [](const std::string &number){
             return std::atof(number.c_str());
@@ -332,7 +332,7 @@ int main (int argc, char *argv[])
 
     if(benchmark){
         std::cout << "\nBenchmarking...\n";
-        size_t repetitions = 1000000;
+        size_t repetitions = 10000000;
         auto startInterp = sc::high_resolution_clock::now();
         for(size_t i = 0; i < repetitions; ++i)
             interpretedFunction(numericArgs);
