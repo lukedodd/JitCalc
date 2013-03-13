@@ -8,14 +8,70 @@ The objectives are to demonstrate how to use AsmJit (right now there are few exa
 Compiling
 ---------
 
-This project uses a CMake build. You'll need a recent version of GCC orclang (C++11 features used heavily). Tested on x86-64 Linux only. I'd expect x86-64 OSX to work too.
+This project uses a CMake build. You'll need a recent version of GCC or clang (C++11 features used heavily). Tested on x86-64 Linux only. I'd expect x86-64 OSX to work too.
 
+    # git checkout
+    git clone https://github.com/lukedodd/JitCalc.git
+    # make build directory
+    mdkir build-jitcalc
+    cd build-jitcalc/
+    # run cmake and compile
+    cmake ../JitCalc
+    make
+    # run an example
+    ./jitcalc "((x y) (+ x (/ y 2)))" 5 20.5
+    
 Usage
 -----
 
-Examples soon.
+
+Expressions are lisp like. Operations supported are addition, subtraction, multiplication and division (+, -, *, /).
+
+Code should be supplied to the jitcalc command in the first argument. An S-Expression of this form is expected `((args...) (expr)`. Subsequent command line arguments are bound to the function arguments of the supplied expression. Some examples should make this clear!
+
+    $ ./jitcalc "((x) (+ x 10))" 5 # add 10 to x, which is bound to 5
+    Interpreted output: 15
+    Code gen output: 15
+
+    $ ./jitcalc "((x y) (+ x y))" 100 1 # add two arguments
+    Interpreted output: 101
+    Code gen output: 101
+
+    $ ./jitcalc "((x y) (+ x (* y 2)))" 2 2.5 # multiply second argument by 2 and add to first argument
+    Interpreted output: 7
+    Code gen output: 7
+
+    $ # more complex expression
+    $ ./jitcalc "((x y) (+ (* (+ x 20) y) (/ x (+ y 1))))" 1 10
+    Interpreted output: 210.091
+    Code gen output: 210.091
+
+ 
+ Benchmarking is possible, see below!
 
 Benchmark Results
 -----------------
 
-Coming soon.
+Some benchmark command examples and results:
+
+
+    $ ./jitcalc -benchmark "((x y) (* x (+ y 10)))" 5 10
+    Interpreted output: 100
+    Code gen output: 100
+
+    Benchmarking...
+    Duration for 1000000 repeated evaluations.
+
+     - Interpreted: 1020ms
+     - JIT: 5ms 
+
+    $ ./jitcalc -benchmark "((x y) (+ (* (+ x 20) y) (/ x (+ y 1))))" 15.5 20
+    Interpreted output: 710.738
+    Code gen output: 710.738
+
+    Benchmarking...
+    Duration for 1000000 repeated evaluations.
+
+     - Interpreted: 2308ms
+     - JIT: 7ms 
+
