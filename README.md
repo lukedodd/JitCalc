@@ -52,7 +52,7 @@ Code should be supplied to the jitcalc command in the first argument. An S-Expre
 Benchmark Results
 -----------------
 
-Some benchmark command examples and results:
+Here are benchmark command examples and results.
 
 
     $ ./jitcalc -benchmark "((x y) (* x (+ y 10)))" 5 10
