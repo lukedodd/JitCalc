@@ -1,0 +1,3 @@
+-I.
+-I../libs/asmjit/src
+-std=c++0x
