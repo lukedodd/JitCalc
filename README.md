@@ -5,6 +5,8 @@ A small program demonstrating how to use [AsmJit](http://code.google.com/p/asmji
 
 The objectives are to demonstrate how to use AsmJit (right now there are few examples online) and to demonstrate how much faster JIT code generation can be.
 
+For a more serious expression evaulator please see [mathspresso](https://code.google.com/p/mathpresso/).
+
 Compiling
 ---------
 
