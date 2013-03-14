@@ -62,6 +62,7 @@ public:
                 return numberHandler(c.val.c_str());
             }case Cell::List:{
                 std::vector<EvalReturn> evalArgs(c.list.size()-1);
+                
                 // eval each argument
                 std::transform(c.list.begin()+1, c.list.end(), evalArgs.begin(), 
                     [=](const Cell &c) -> EvalReturn{
@@ -71,7 +72,7 @@ public:
                 if(functionMap.find(c.list[0].val) == functionMap.end())
                     throw std::runtime_error("Could not handle procedure: " + c.list[0].val);
 
-                // call function specified by sumbol map with evaled arguments
+                // call function specified by symbol map with evaled arguments
                 return functionMap.at(c.list[0].val)(evalArgs);
           }case Cell::Symbol:{
               if(symbolHandler)
