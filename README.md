@@ -61,7 +61,7 @@ Here are benchmark command examples and results.
     Code gen output: 100
 
     Benchmarking...
-    Duration for 10000000 repeated evaluations.
+    Duration for 10000000 repeated evaluations:
 
      - Interpreted: 2532ms
      - JIT: 19ms 
@@ -71,7 +71,7 @@ Here are benchmark command examples and results.
     Code gen output: 710.738
 
     Benchmarking...
-    Duration for 10000000 repeated evaluations.
+    Duration for 10000000 repeated evaluations:
 
      - Interpreted: 5732ms
      - JIT: 52ms
