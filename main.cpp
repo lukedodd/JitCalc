@@ -343,7 +343,7 @@ int main (int argc, char *argv[])
             jitFunction(numericArgs);
         auto endJit = sc::high_resolution_clock::now();
 
-        std::cout << "Duration for " << repetitions << " repeated evaluations.\n\n";
+        std::cout << "Duration for " << repetitions << " repeated evaluations:\n\n";
         std::cout << " - Interpreted: " << 
                      sc::duration_cast<sc::milliseconds>(endInterp-startInterp).count() << "ms\n";
 
