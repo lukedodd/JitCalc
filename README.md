@@ -1,7 +1,8 @@
 JitCalc
 =======
 
-A small program demonstrating how to use [AsmJit](http://code.google.com/p/asmjit/) to create a just-in-time mathematical expression evaluator.
+A small program demonstrating how to use [AsmJit](http://code.google.com/p/asmjit/) to create a just-in-time mathematical expression evaluator. Further description of JitCalc and AsmJit [can be found in this blog post](http://www.lukedodd.com/?p=337).
+
 
 The objectives are to demonstrate how to use AsmJit (right now there are few examples online) and to demonstrate how much faster JIT code generation can be.
 
