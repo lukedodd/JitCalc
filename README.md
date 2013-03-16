@@ -50,9 +50,6 @@ Code should be supplied to the jitcalc command in the first argument. An S-Expre
     Interpreted output: 210.091
     Code gen output: 210.091
 
- 
- Benchmarking is possible, see below!
-
 Benchmark Results
 -----------------
 
