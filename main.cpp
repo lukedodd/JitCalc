@@ -196,6 +196,10 @@ public:
         return generatedFunction(&args[0]); 
     }
 
+    ~CodeGenCalculatorFunction(){
+        AsmJit::MemoryManager::getGlobal()->free((void*)generatedFunction);
+    }
+
 private:
     void SetXmmVar(AsmJit::X86Compiler &c, AsmJit::XmmVar &v, double d){
         using namespace AsmJit;
