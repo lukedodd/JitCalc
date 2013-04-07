@@ -75,3 +75,8 @@ Here are benchmark command examples and results.
 
      - Interpreted: 5732ms
      - JIT: 52ms
+     
+License
+-------
+
+This code is under the [BSD 2-Clause](http://opensource.org/licenses/BSD-2-Clause) license.
